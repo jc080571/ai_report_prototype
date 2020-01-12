@@ -1,0 +1,59 @@
+{% extends 'site_template.html' %}
+
+{% block body %}
+	<div id="page-wrapper">
+                <!-- Page Heading -->
+                <div class="row">
+						<div class="col-lg-12">
+							<h1 class="page-header">
+								每日重要新聞<small></small>
+							</h1>
+							<ol class="breadcrumb">
+								<li class="active">
+									<i class="fa fa-dashboard"></i> 更新時間：
+								</li>
+							</ol>
+						</div>
+				</div>
+					<!-- /.row -->
+			<div class="card shadow mb-4">
+
+				<div class="card-body">
+					<div class="table-responsive">
+						<table class="table table-bordered table-hover table-striped" id="dataTable" width="100%" cellspacing="0">
+						  <thead>
+							<tr>
+							  <th>日期</th>
+							  <th>標題</th>
+							</tr>
+						  </thead>
+						  <tbody>
+							{% for data in news %}
+								<tr>
+									<td>
+										{{ data.publishedat }}
+									</td>
+									<td>
+										<a target="_blank" href={{ data.url }}>{{ data.title }}</a>
+									</td>
+
+								</tr>
+							{% endfor %}
+						  </tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+
+		<div class="container-fluid">
+			
+			<!-- Page Heading -->
+
+			<!-- /.row -->
+
+		</div>
+		<!-- /.container-fluid -->
+
+	</div>
+	<!-- /#page-wrapper -->
+{% endblock %}
